@@ -136,9 +136,14 @@ Submit the task in your chosen format (link to versioned code in GitHub/Google D
 
 # How to test application:
 In the root directory:
-1. Run `docker-compose up -d`
-2. Run `docker exec -it commission-calculation composer install`
-3. Run `docker exec -it commission-calculation vendor/bin/phpunit tests`
+1. create .env file with the following parameters:
+`
+   APP_ENV=dev
+   CURRENCY_RATES_ACCESS_KEY=<your-access-key> 
+`
+2. Run `docker-compose up -d`
+3. Run `docker exec -it commission-calculation composer install`
+4. Run `docker exec -it commission-calculation vendor/bin/phpunit tests`
 
 # Resulting command:
 `docker exec -it commission-calculation php bin/console calculate:commissions <file>`
